@@ -61,6 +61,10 @@
 
 ## Menjalankan Unit Test
 
-- Untuk menjalankan unit test kita bisa menggunakan perintah : go `test`
+- Untuk menjalankan unit test kita bisa menggunakan perintah : `go test`
 - Jika kita ingin lebih detail function test apa saja yang sudah di running, kita bisa gunakan perintah : `go test -v`
-- Dan jika kita ingin memilih function unit test mana yang ingin di running, kita bisa gunakan perintah : go test -v -run TestNamaFunction
+- Dan jika kita ingin memilih function unit test mana yang ingin di running, kita bisa gunakan perintah : `go test -v -run TestNamaFunction`
+
+## Menjalankan Semua Unit Test
+
+- Jika kita ingin menjalankan semua unit test dari top folder module nya, kita bisa gunakan perintah : `go test./...`
