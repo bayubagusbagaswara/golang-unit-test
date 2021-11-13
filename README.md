@@ -68,3 +68,15 @@
 ## Menjalankan Semua Unit Test
 
 - Jika kita ingin menjalankan semua unit test dari top folder module nya, kita bisa gunakan perintah : `go test./...`
+
+## Menggagalkan Unit Test
+
+- Menggagalkan unit test menggunakan panic bukanlah hal yang bagus
+- Go-Lang sendiri sudah menyediakan cara untuk mengagalkan unit test menggunakan `testing.T`
+- Terdapat function Fail(), FailNow(), Error() dan Fatal() jika kita ingin menggagalkan unit test
+
+### t.Fail() dan t.FailNow()
+
+- Terdapat dua function untuk menggagalkan unit test, yaitu Fail() dan FailNow()
+- Fail() akan menggagalkan unit test. Namun tetap melanjutkan eksekusi unit testnya. Akan tetapi, ketika diakhir (saat test selesai), maka unit test tersebut dianggap gagal
+- FailNow() akan menggagalkan unit test saat ini juga, tanpa melanjutkan eksekusi unit test

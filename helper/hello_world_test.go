@@ -1,16 +1,29 @@
 package helper
 
-import "testing"
+import (
+	"fmt"
+	"testing"
+)
 
 func TestHelloWorld(t *testing.T) {
-
-	// simpan hasil dari function yang kita test, misal simpan ke result
 	result := HelloWorld("Bayu")
-	// lalu cek isi dari resultnya apakah sesuai dengan ekspektasi atau tidak, kalau tidak sesuai, maka lempar error
 
 	if result != "Hello Bayu" {
-		// jika tidak sama dengan Hello Bayu, maka error
-		panic("Result is not 'Hello Bayu'")
+		// error
+		t.Fail()
 	}
+	// kode program ini tetap dieksekusi, tapi hasil dari unit testnya tetap Fail
+	fmt.Println("Test HelloWorld Tetap Dieksekusi Selesai")
+}
 
+func TestHelloWorldOther(t *testing.T) {
+	result := HelloWorld("Bagaswara")
+
+	if result != "Hello Bagaswara" {
+		// error
+		t.FailNow()
+	}
+	// kode program ini tidak dieksekusi, karena sudah FailNow()
+	// artinya langsung menghentikan unit testnya
+	fmt.Println("Test HelloWorldOther Tidak Dieksekusi Selesai")
 }
