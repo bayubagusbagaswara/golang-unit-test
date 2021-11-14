@@ -80,3 +80,10 @@
 - Terdapat dua function untuk menggagalkan unit test, yaitu Fail() dan FailNow()
 - Fail() akan menggagalkan unit test. Namun tetap melanjutkan eksekusi unit testnya. Akan tetapi, ketika diakhir (saat test selesai), maka unit test tersebut dianggap gagal
 - FailNow() akan menggagalkan unit test saat ini juga, tanpa melanjutkan eksekusi unit test
+
+### t.Error(args...) dan t.Fatal(args...)
+
+- Error() functin lebih seperti melakukan log(print) error. Karena dengan Error ini kita bisa menambahkan argument. Misalnya seperti pesan errornya apa ketika terjadi error
+- Namun, setelah melakukan `log error`, lalu dia akan secara otomatis memanggil function Fail(), sehingga mengakibatkan unit test dianggap gagal
+- Namun, karena hanya memanggil Fail(), artinya eksekusi unit test (satu unit test saja) akan tetap berjalan sampai selesai
+- Fatal() mirip dengan Error(). Hanya saja, setelah melakukan log error, lalu dia akan memanggil FailNow(), sehingga mengakibatkan eksekusi unit test berhenti

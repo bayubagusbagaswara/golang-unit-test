@@ -9,10 +9,10 @@ func TestHelloWorld(t *testing.T) {
 	result := HelloWorld("Bayu")
 
 	if result != "Hello Bayu" {
-		// error
-		t.Fail()
+		// misal kita ganti dengan function Error dan menambahkan pesannya
+		t.Error("Result must be 'Hello Bayu'")
 	}
-	// kode program ini tetap dieksekusi, tapi hasil dari unit testnya tetap Fail
+	// kode program ini tetap dieksekusi
 	fmt.Println("Test HelloWorld Tetap Dieksekusi Selesai")
 }
 
@@ -20,10 +20,9 @@ func TestHelloWorldOther(t *testing.T) {
 	result := HelloWorld("Bagaswara")
 
 	if result != "Hello Bagaswara" {
-		// error
-		t.FailNow()
+		// kita ganti dengan Fatal dan tambahkan pesan errornya
+		t.Fatal("Result must be 'Hello Bagaswara'")
 	}
-	// kode program ini tidak dieksekusi, karena sudah FailNow()
-	// artinya langsung menghentikan unit testnya
+	// kode program ini tidak dieksekusi
 	fmt.Println("Test HelloWorldOther Tidak Dieksekusi Selesai")
 }
