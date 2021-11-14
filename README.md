@@ -87,3 +87,14 @@
 - Namun, setelah melakukan `log error`, lalu dia akan secara otomatis memanggil function Fail(), sehingga mengakibatkan unit test dianggap gagal
 - Namun, karena hanya memanggil Fail(), artinya eksekusi unit test (satu unit test saja) akan tetap berjalan sampai selesai
 - Fatal() mirip dengan Error(). Hanya saja, setelah melakukan log error, lalu dia akan memanggil FailNow(), sehingga mengakibatkan eksekusi unit test berhenti
+
+## Assertion
+
+- Sangat disarankan menggunakan Assertion untuk melakukan pengecekan
+- Sayangnya, di Golang tidak menyediakan package untuk Assertion, sehingga kita butuh menambahkan library untuk melakukan Assertion ini
+
+## Testify
+
+- Salah satu library Assertion yang paling populer di Golang adalah Testify
+- https://github.com/stretchr/testify
+- tambahkan di Go Module kita : `go get github.com/stretchr/testify`
