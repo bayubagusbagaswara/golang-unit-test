@@ -9,10 +9,22 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-// untuk test Main parameternya adalah testing.M
-func TestMain(m *testing.M) {
-	// untuk mengeksekusi semua unit test harus panggil run
+func TestSubTest(t *testing.T) {
+	t.Run("Bayu", func(t *testing.T) {
+		// bikin sub test
+		result := HelloWorld("Bayu")
+		require.Equal(t, "Hello Bayu", result, "Result must be 'Hello Bayu'")
+	})
 
+	t.Run("Bagus", func(t *testing.T) {
+		// bikin subtest
+		result := HelloWorld("Bagus")
+		require.Equal(t, "Hello Bagus", result, "Result must be 'Hello Bagus'")
+
+	})
+}
+
+func TestMain(m *testing.M) {
 	// before, sebelum unit testnya dijalankan
 	fmt.Println("BEFORE UNIT TEST")
 
@@ -20,7 +32,6 @@ func TestMain(m *testing.M) {
 
 	// after, setelah unit testnya selesai dijalankan
 	fmt.Println("AFTER UNIT TEST")
-
 }
 
 func TestSkip(t *testing.T) {

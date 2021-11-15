@@ -125,3 +125,15 @@
 - Jika terdapat function TestMain tersebut, maka secara otomatis Golang akan mengeksekusi function ini tiap kali menjalankan unit test di sebuah package
 - Dengan ini kita bisa mengatur Before dan After unit test sesuai dengan yang kita mau
 - Ingat, function TestMain itu dieksekusi hanya sekali per Golang package, bukan per tiap function unit test
+
+## Sub Test
+
+- Golang mendukung fitur pembuatan function unit test di dalam function unit test
+- Fitur ini memang sedikit aneh dan jarang sekali dimiliki di unit test di bahasa pemrograman yang lainnya
+- Untuk membuat sub test, kita bisa menggunakan function `Run()`
+
+### Menjalankan Hanya Sub Test
+
+- Jika ingin menjalankan sebuah unit test function, kita bisa menggunakan perintah : `go test -run TestNamaFunction`
+- Jika kita ingin menjalankan hanya salah satu sub test, kita bisa menggunakan perintah : `go test -run TestNamaFunction/NamaSubTest`
+- Atau untuk semua function di unit test tapi hanya sub test tertentu, kita bisa gunakan perintah : `go test -run /NamaSubTest`
