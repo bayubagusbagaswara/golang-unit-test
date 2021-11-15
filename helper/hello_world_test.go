@@ -9,6 +9,20 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// untuk test Main parameternya adalah testing.M
+func TestMain(m *testing.M) {
+	// untuk mengeksekusi semua unit test harus panggil run
+
+	// before, sebelum unit testnya dijalankan
+	fmt.Println("BEFORE UNIT TEST")
+
+	m.Run() // eksekusi semua unit test
+
+	// after, setelah unit testnya selesai dijalankan
+	fmt.Println("AFTER UNIT TEST")
+
+}
+
 func TestSkip(t *testing.T) {
 	if runtime.GOOS == "windows" {
 		t.Skip("Cannot trun on Windows")
