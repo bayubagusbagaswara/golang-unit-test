@@ -137,3 +137,10 @@
 - Jika ingin menjalankan sebuah unit test function, kita bisa menggunakan perintah : `go test -run TestNamaFunction`
 - Jika kita ingin menjalankan hanya salah satu sub test, kita bisa menggunakan perintah : `go test -run TestNamaFunction/NamaSubTest`
 - Atau untuk semua function di unit test tapi hanya sub test tertentu, kita bisa gunakan perintah : `go test -run /NamaSubTest`
+
+## Table Test
+
+- Jika diperhatikan, sebenarnya dengan sub test, kita bisa membuat `test secara dinamis`
+- Dan fitur sub test ini, biasa digunakan oleh programmer Go-Lang untuk membuat test dengan konsep `Table Test`
+- Table Test yaitu dimana kita menyediakan `data berupa slice` yang berisi `parameter dan ekspektasi` hasil dari unit test
+- Lalu slice tersebut kita iterasi menggunakan sub test

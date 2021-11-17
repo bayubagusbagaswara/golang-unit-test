@@ -9,6 +9,42 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestTableHelloWorld(t *testing.T) {
+	// kita bikin test nya
+	// berupa slice of struct
+	tests := []struct {
+		name     string
+		request  string
+		expected string
+	}{
+		// seperti kita mendefiniskan datanya dan ekspektasinya
+		// lalu tinggal running testnya menggunakan perulangan
+		{
+			// masukkan nilai tiap slice nya
+			// misal ini adalah function dengan parameter Bayu
+			name:     "Bayu",
+			request:  "Bayu",
+			expected: "Hello Bayu",
+		},
+		{
+			// misal ini adalah function dengan parameter Bagaswara
+			name:     "Bagaswara",
+			request:  "Bagaswara",
+			expected: "Hello Bagaswara",
+		},
+	}
+	// lakukan perulangan untuk mejalankan testnya
+	for _, test := range tests {
+		// jalankan testnya dan ambil index namenya
+		t.Run(test.name, func(t *testing.T) {
+			result := HelloWorld(test.request)
+			// hasilnya harus sesuai dengan ekspektasi kita
+			require.Equal(t, test.expected, result)
+		})
+	}
+
+}
+
 func TestSubTest(t *testing.T) {
 	t.Run("Bayu", func(t *testing.T) {
 		// bikin sub test
