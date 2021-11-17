@@ -144,3 +144,21 @@
 - Dan fitur sub test ini, biasa digunakan oleh programmer Go-Lang untuk membuat test dengan konsep `Table Test`
 - Table Test yaitu dimana kita menyediakan `data berupa slice` yang berisi `parameter dan ekspektasi` hasil dari unit test
 - Lalu slice tersebut kita iterasi menggunakan sub test
+
+## Mock
+
+- Mock adalah object yang sudah kita program dengan ekspektasi tertentu sehingga ketika dipanggil, maka dia akan menghasilkan data yang sudah kita program diawal
+- Mock adalah salah satu teknik dalam unit testing. Dimana kita bisa membuat mock object dari suatu object yang memang sulit untuk di testing
+- Misal kita ingin membuat unit test. Namun ternyata ada kode program kita yang harus memanggil API Call ke third party service. Hal ini sangat sulit untuk di test, karena unit testing kita harus selalu memanggil third party service. Dan belum tentu response nya sesuai dengan apa yang kita mau
+- Pada kasus seperti itu, cocok sekali untuk menggunakan mock object
+
+## Testify Mock
+
+- Untuk membuat mock object, tidak ada fitur bawaan Go-Lang. Namun, kita bisa menggunakan library testify yang sebelumnya kita gunakan untuk assertion
+- Testify mendukung pembuatan mock object, sehingga cocok untuk kita gunakan ketika ingin membuat mock object
+- Namun, perlu diperhatikan, jika desain kode program kita jelek, akan sulit untuk melakukan mocking. Jadi pastikan kita melakukan pembuatan desain kode program kita dengan baik
+
+## Contoh Kasus: Aplikasi Query ke Database
+
+- Dimana kita akan buat layer Service sebagai business logic, dan layer Repository sebagai jembatan ke database
+- Agar kode kita mudah untuk di test, disarankan agar membuat kontrak berupa Interface
