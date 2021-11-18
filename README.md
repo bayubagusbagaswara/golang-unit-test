@@ -162,3 +162,39 @@
 
 - Dimana kita akan buat layer Service sebagai business logic, dan layer Repository sebagai jembatan ke database
 - Agar kode kita mudah untuk di test, disarankan agar membuat kontrak berupa Interface
+
+## Benchmark
+
+- Selain unit test, Go-Lang testing package juga mendukung melakukan benchmark
+- Benchmark adalah mekanisme `menghitung kecepatan performa kode aplikasi kita`
+- Benchmark di Go-Lang dilakukan dengan cara secara otomatis melakukan iterasi kode yang kita panggil berkali-kali sampai waktu tertentu
+- Kita tidak perlu menentukan jumlah iterasi dan lamanya, karena itu sudah diatur oleh `testing.B` bawaan dari testing package
+
+## testing.B
+
+- testing.B adalah struct yang digunakan untuk melakukan benchmark
+- testing.B mirip dengan testing.T, terdapat function Fail(), FailNow(), Error(), Fatal() dan lain-lain
+- Yang membedakan, ada beberapa attribute dan function tambahan yang digunakan untuk melakukan benchmark
+- Salah satunya adalah attribute N, ini digunakan untuk melakukan total iterasi sebuah benchmark
+
+## Cara Kerja Benchmark
+
+- Cara kerja benchmark di Go-Lang sangat sederhana
+- Dimana kita hanya perlu membuat `perulangan (iterasi for)` sejumlah N attribute
+- Nanti secara otomatis Go-Lang akan melakukan eksekusi sejumlah perulangan yang ditentukan secara otomatis
+- Lalu mendeteksi berapa lama proses tersebut berjalan, dan disimpukan performa benchmark nya dalam waktu
+
+## Benchmark Function
+
+- Mirip seperti unit test, untuk benchmark pun, di Go-Lang sudah ditentukan nama function nya. Harus diawali dengan kata Benchmark, misal BenchmarkHelloWorld, BenchmarkXxx
+- Selain itu, harus memiliki parameter `(b *testing.B)`
+- Dan tidak boleh mengembalikan return value
+- Untuk nama file benchmark, sama seperti unit test, diakhiri dengan `_test`, misal hello_world_test.go
+
+## Menjalankan Benchmark
+
+- Untuk menjalankan seluruh benchmark di module, kita bisa menggunakan perintah sama seperti test. Namun, ditambahkan parameter bench : `go test -v -bench=.`
+- Jika kita hanya ingin menjalankan benchmark tanpa unit test, kita bisa gunakan perintah : `go test -v -run=NotMathUnitTest -bench=.`
+- Kode diatas selain menjalankan benchmark, juga akan menjalanka unit test nya
+- Jika kita hanya ingin menjalankan benchmark tertentu, kita bisa gunakan perintah : `go test -v -run=NotMathUnitTest -bench=BenchmarkTest`
+- Jika kita menjalankan benchmark di root module dan ingin semua module dijalankan, kita bisa gunakan perintah : `go test -v -bench=. ../...`

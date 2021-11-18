@@ -9,6 +9,23 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// kita bikin function benchmark
+func BenchmarkHelloWorld(b *testing.B) {
+
+	// lakukan perulangan sebanyak N
+	for i := 0; i < b.N; i++ {
+
+		// eksekusi kode program kita disini
+		// misalnya kita punya function dengan parameter Bayu
+		HelloWorld("Bayu")
+	}
+}
+func BenchmarkHelloWorldBagaswara(b *testing.B) {
+	for i := 0; i < b.N; i++ {
+		HelloWorld("Bagaswara")
+	}
+}
+
 func TestTableHelloWorld(t *testing.T) {
 	// kita bikin test nya
 	// berupa slice of struct
