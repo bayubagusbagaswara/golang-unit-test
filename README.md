@@ -198,3 +198,12 @@
 - Kode diatas selain menjalankan benchmark, juga akan menjalanka unit test nya
 - Jika kita hanya ingin menjalankan benchmark tertentu, kita bisa gunakan perintah : `go test -v -run=NotMathUnitTest -bench=BenchmarkTest`
 - Jika kita menjalankan benchmark di root module dan ingin semua module dijalankan, kita bisa gunakan perintah : `go test -v -bench=. ../...`
+
+## Sub Benchmark
+
+- Sama seperti testing.T, di testing.B juga kita bisa membuat sub benchmark menggunakan function `Run()`
+
+## Menjalankan Hanya Sub Benchmark
+
+- Saat kita menjalankan benchmark function, maka semua sub benchmark akan berjalan
+- Namun, jika kita ingin menjalankan salah satu sub benchmark saja, kita bisa gunakan perintah : `go test -v -bench=BenchmarkNama/NamaSub`
