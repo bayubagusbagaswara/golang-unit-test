@@ -9,6 +9,36 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+// kita bikin benchmark table
+func BenchmarkTable(b *testing.B) {
+	// bikin dulu variable benchmark untuk struct slice
+	benchmarks := []struct {
+		name    string
+		request string
+	}{
+		{
+			name:    "Bayu",
+			request: "Bayu",
+		},
+		{
+			name:    "Bagaswara",
+			request: "Bagaswara",
+		},
+		{
+			name:    "BayuBagusBagaswara",
+			request: "BayuBagusBagaswara",
+		},
+	}
+	// iterasi menggunakan for
+	for _, benchmark := range benchmarks {
+		b.Run(benchmark.name, func(b *testing.B) {
+			for i := 0; i < b.N; i++ {
+				HelloWorld(benchmark.request)
+			}
+		})
+	}
+}
+
 // kita bikin Sub Benchmark
 func BenchmarkSub(b *testing.B) {
 	b.Run("Bayu", func(b *testing.B) {
